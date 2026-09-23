@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 2</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    function resizeCanvas(){
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const aspect = (window.innerWidth / window.innerHeight).toFixed(2);
+        windowVal.textContent = '${window.innerWidth} x ${window.innerHeight} (${aspect})';
+
+        if (window.innerWidth < 600) {
+            windowVal.style.color = "red";
+        } 
+        else {
+            windowVal.style.color = "black";
+        }
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    class Atom {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 2 - 1;
+                this.speedY = Math.random() * 2 - 1;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.size > 0.1) this.size -= 0.02;
+            }
+            draw() {
+                ctx.fillStyle = `hsl(${hueAccent}, 100%, 70%)`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+    function updateTimeline(){
+        const elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
+        
+        if (elapsedSeconds % 10 === 0 && elapsedSeconds > 0){
+            const shiftGrid = (elapsedSeconds / 10) % 2 === 0 ? 1 : -1;
+            document.body.style.backgroundColor = `hsl(${hueAccent + shiftGrid * 30}, 100%, 90%)`;
+        }
+    }
+
+    </body>
+</html>
