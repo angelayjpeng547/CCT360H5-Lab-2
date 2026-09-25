@@ -22,6 +22,7 @@
         <div class="grid-item">
             <h2>Mouse Events</h2>
             <p id="mouse-value">Mouse Position: X: 0, Y: 0</p>
+            <p id="mouse-text"></p>
         </div>
         <div class="grid-item">
             <h2>Keyboard Events</h2>
@@ -46,7 +47,7 @@
         // Mouse move: Triggers dynamic flashlight colour position and coordinate layout text update 
         // and add a message based on the mouse position in the window
         window.addEventListener("mousemove", (event) => {
-            const mouseText = document.getElementById('mouse-value');
+            const mouseText = document.getElementById('mouse-text');
 
             color.style.xaxis = `${event.clientX - 150}px`;
             color.style.yaxis = `${event.clientY - 150}px`;
