@@ -53,12 +53,15 @@
             if (event.clientX < window.innerWidth / 3) {
                 color.style.backgroundColor = 'yellow';
                 color.style.color = 'white';
+                mouseValue.textContent = "You are in the left third of the window.";
             } else if (event.clientX >= window.innerWidth / 3 && event.clientX < (2 * window.innerWidth) / 3) {
                 color.style.backgroundColor = 'orange';
                 color.style.color = 'black';
+                mouseValue.textContent = "You are in the middle third of the window.";
             } else {
                 color.style.backgroundColor = 'gold';
                 color.style.color = 'black';
+                mouseValue.textContent = "You are in the right third of the window.";
             }
 
         });
