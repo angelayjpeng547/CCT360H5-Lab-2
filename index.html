@@ -41,10 +41,13 @@
         const color = document.getElementById('color');
         const mouseValue = document.getElementById('mouse-value');
         const keyboardValue = document.getElementById('keyboard-value');
-        const windowValue = document.getElementById('window-value')
+        const windowValue = document.getElementById('window-value');
 
-        // Mouse move: Triggers dynamic flashlight colour position and coordinate layout text update
+        // Mouse move: Triggers dynamic flashlight colour position and coordinate layout text update 
+        // and add a message based on the mouse position in the window
         window.addEventListener("mousemove", (event) => {
+            const mouseText = document.getElementById('mouse-value');
+
             color.style.xaxis = `${event.clientX - 150}px`;
             color.style.yaxis = `${event.clientY - 150}px`;
 
@@ -53,15 +56,15 @@
             if (event.clientX < window.innerWidth / 3) {
                 color.style.backgroundColor = 'yellow';
                 color.style.color = 'white';
-                mouseValue.textContent = "You are in the left third of the window.";
+                mouseText.textContent = "You are in the left third of the window.";
             } else if (event.clientX >= window.innerWidth / 3 && event.clientX < (2 * window.innerWidth) / 3) {
                 color.style.backgroundColor = 'orange';
                 color.style.color = 'black';
-                mouseValue.textContent = "You are in the middle third of the window.";
+                mouseText.textContent = "You are in the middle third of the window.";
             } else {
                 color.style.backgroundColor = 'gold';
                 color.style.color = 'black';
-                mouseValue.textContent = "You are in the right third of the window.";
+                mouseText.textContent = "You are in the right third of the window.";
             }
 
         });
