@@ -39,6 +39,7 @@
         </p>
     </div>
     <script>
+        // DOM manipulation
         const body = document.body;
         const color = document.getElementById('color');
         const mouseValue = document.getElementById('mouse-value');
@@ -118,6 +119,7 @@
                 text.textContent = "The window is now large.";
             } 
         }
+        // Browser Object Model (BOM) features
         window.addEventListener("resize", windowResizeHandler);
         windowResizeHandler(); // Call it once to set the initial state
     </script>
